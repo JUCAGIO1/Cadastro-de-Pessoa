@@ -6,7 +6,7 @@ public class CadastroPessoa extends JFrame {
     // Fontes e cores
     private final Font fonteLabels = new Font("Arial", Font.BOLD, 12);
     private final Font fonteCampos = new Font("Arial", Font.PLAIN, 12);
-    //private final Color corLabel = new Color(255, 102, 0);  // Laranja
+    private final Color corLabel = new Color(255, 102, 0);  // Laranja
     private final Color corCampo = Color.WHITE;
 
     // Componentes
@@ -31,109 +31,128 @@ public class CadastroPessoa extends JFrame {
         gbc.insets = new Insets(5, 5, 5, 5);
         gbc.fill = GridBagConstraints.HORIZONTAL;
 
-        // Linha 1
-        gbc.gridx = 0; gbc.gridy = 0;
+        // Texto 
+        JLabel labelInfo = new JLabel("Cadastro de Pessoa");
+        labelInfo.setFont(new Font("Arial", Font.ITALIC, 11));
+        painel.add(labelInfo, gbc);
+
+        // Linha 1 
+        gbc.gridy = 0;
+        gbc.gridx = 0;
         painel.add(criarLabel("Tipo"), gbc);
         gbc.gridx = 1;
         comboTipo = new JComboBox<>(new String[]{"Física", "Jurídica"});
-        comboTipo.setFont(fonteCampos);
         painel.add(comboTipo, gbc);
 
         gbc.gridx = 2;
         painel.add(criarLabel("CPF / CNPJ"), gbc);
-        gbc.gridx = 3;
+        gbc.gridx = 3; gbc.gridwidth = 2;
         txtCpfCnpj = criarCampo(15);
         painel.add(txtCpfCnpj, gbc);
-        gbc.gridx = 4; 
+
+        gbc.gridx = 5; gbc.gridwidth = 1;
         painel.add(criarLabel("Fornecedor"), gbc);
-        gbc.gridx = 5;
+        gbc.gridx = 6; gbc.gridwidth = 1;
         chkFornecedor = new JCheckBox();
+        chkFornecedor.setOpaque(false);
+        chkFornecedor.setBackground(new Color(0,0,0,0));    
+
         painel.add(chkFornecedor, gbc);
 
-
-
-        // Linha 2
-        gbc.gridx = 0; gbc.gridy++;
+        // Linha 2 
+        gbc.gridy++;
+        gbc.gridx = 0;
         painel.add(criarLabel("Nome"), gbc);
-        gbc.gridx = 1; gbc.gridwidth = 1;
-        txtNome = criarCampo(30);
+        gbc.gridx = 1;
+        gbc.gridwidth = 6;
+        txtNome = criarCampo(40);
         painel.add(txtNome, gbc);
         gbc.gridwidth = 1;
 
-        // Linha 3
-        gbc.gridx = 2;
+        // Linha 3 
+        gbc.gridy++;
+        gbc.gridx = 0;
         painel.add(criarLabel("RG / Inscrição Estadual"), gbc);
-        gbc.gridx = 3;
+        gbc.gridx = 1;
         txtRgIe = criarCampo(15);
         painel.add(txtRgIe, gbc);
 
-        // Linha 4
-        gbc.gridx = 0; gbc.gridy++;
+        gbc.gridx = 2;
         painel.add(criarLabel("Órgão Expedidor"), gbc);
-        gbc.gridx = 1;
+        gbc.gridx = 3;
         txtOrgaoExp = criarCampo(15);
+        gbc.gridwidth = 2;
         painel.add(txtOrgaoExp, gbc);
+        gbc.gridwidth = 1;
 
-
-        // Linha 5
-        gbc.gridx = 0; gbc.gridy++;
+        // Linha 4 
+        gbc.gridy++;
+        gbc.gridx = 0;
         painel.add(criarLabel("Email"), gbc);
         gbc.gridx = 1;
         txtEmail = criarCampo(20);
+        gbc.gridwidth = 2;
         painel.add(txtEmail, gbc);
+        gbc.gridwidth = 1;
 
-        gbc.gridx = 2;
-        painel.add(criarLabel("CEP"), gbc);
         gbc.gridx = 3;
+        painel.add(criarLabel("CEP"), gbc);
+        gbc.gridx = 4; gbc.gridwidth = 4;
         txtCep = criarCampo(10);
         painel.add(txtCep, gbc);
 
-        gbc.gridx = 2;
+        // Linha 5 
+        gbc.gridy++;
+        gbc.gridx = 0; gbc. gridwidth = 1;
         painel.add(criarLabel("País"), gbc);
-        gbc.gridx = 3;
+        gbc.gridx = 1; gbc.gridwidth = 2;
         txtPais = criarCampo(10);
         txtPais.setText("BRASIL");
         txtPais.setEditable(false);
         painel.add(txtPais, gbc);
 
-        gbc.gridx = 0; gbc.gridy++;
+        gbc.gridx = 3;
         painel.add(criarLabel("UF"), gbc);
-        gbc.gridx = 1;
+        gbc.gridx = 5; gbc.gridwidth = 1;
+        txtUf = criarCampo(5);
+        painel.add(txtUf, gbc);
+        gbc.gridx = 6; gbc.gridwidth = 2;
         txtUf = criarCampo(5);
         painel.add(txtUf, gbc);
 
         // Linha 6
         gbc.gridx = 0; gbc.gridy++;
+
+        gbc.gridx = 0; gbc.gridwidth = 1;
         painel.add(criarLabel("Município"), gbc);
-        gbc.gridx = 1; gbc.gridwidth = 3; //tirar gridwidth caso dê erro
+        gbc.gridx = 1; gbc.gridwidth = 6;
         txtMunicipio = criarCampo(15);
         painel.add(txtMunicipio, gbc);
 
-
         // Linha 7
-        gbc.gridx = 0; gbc.gridy++;
+        gbc.gridx = 0; gbc.gridwidth = 1; gbc.gridy++;
         painel.add(criarLabel("Logradouro"), gbc);
-        gbc.gridx = 1;
+        gbc.gridx = 1; gbc.gridwidth = 6;
         txtLogradouro = criarCampo(20);
         painel.add(txtLogradouro, gbc);
 
         // Linha 8
-        gbc.gridx = 0; gbc.gridy++;
+        gbc.gridx = 0; gbc.gridwidth = 1; gbc.gridy++;
         painel.add(criarLabel("Número"), gbc);
-        gbc.gridx = 1;
+        gbc.gridx = 1; gbc.gridwidth = 1;
         txtNumero = criarCampo(5);
         painel.add(txtNumero, gbc);
 
-        gbc.gridx = 2;
+        gbc.gridx = 2; gbc.gridwidth = 1;
         painel.add(criarLabel("Complemento"), gbc);
-        gbc.gridx = 3;
+        gbc.gridx = 3; gbc.gridwidth = 5;
         txtComplemento = criarCampo(10);
         painel.add(txtComplemento, gbc);
 
         // Linha 9
-        gbc.gridx = 0; gbc.gridy++;
+        gbc.gridx = 0; gbc.gridwidth = 1; gbc.gridy++;
         painel.add(criarLabel("Bairro"), gbc);
-        gbc.gridx = 1;
+        gbc.gridx = 1; gbc.gridwidth = 1;
         txtBairro = criarCampo(10);
         painel.add(txtBairro, gbc);
 
@@ -144,32 +163,39 @@ public class CadastroPessoa extends JFrame {
         painel.add(txtTelefone, gbc);
 
         // Linha 10
-        gbc.gridx = 0; gbc.gridy++;
+        gbc.gridx = 4;
         painel.add(criarLabel("Situação"), gbc);
         gbc.gridx = 1;
-        txtSituacao = criarCampo(10);
-        painel.add(txtSituacao, gbc);
 
-        gbc.gridx = 2;
+        gbc.gridx = 5;
         rbAtivo = new JRadioButton("Ativo");
         rbAtivo.setSelected(true);
         painel.add(rbAtivo, gbc);
 
-        gbc.gridx = 3;
+        gbc.gridx = 6;
         rbInativo = new JRadioButton("Inativo");
         painel.add(rbInativo, gbc);
 
         ButtonGroup grupoSituacao = new ButtonGroup();
         grupoSituacao.add(rbAtivo);
+        rbAtivo.setOpaque(false);
+        rbAtivo.setBackground(new Color(0,0,0,0)); 
+
+        rbInativo.setOpaque(false);
+        rbInativo.setBackground(new Color(0,0,0,0));
         grupoSituacao.add(rbInativo);
 
         // Linha 11 - Botões
         gbc.gridx = 0; gbc.gridy++;
         btnLimpar = new JButton("Limpar");
+        btnLimpar.setBackground(new Color(242, 114, 34));
+        btnLimpar.setForeground(Color.WHITE);
         painel.add(btnLimpar, gbc);
 
         gbc.gridx = 1;
         btnConfirmar = new JButton("Confirmar");
+        btnConfirmar.setBackground(new Color(242, 114, 34));
+        btnConfirmar.setForeground(Color.WHITE);
         painel.add(btnConfirmar, gbc);
 
         gbc.gridx = 2;
@@ -190,7 +216,16 @@ public class CadastroPessoa extends JFrame {
     private JLabel criarLabel(String texto) {
         JLabel label = new JLabel(texto);
         label.setFont(fonteLabels);
-       // label.setForeground(corLabel);
+        label.setForeground(corLabel);
+
+        label.setHorizontalAlignment(SwingConstants.CENTER);
+        label.setVerticalAlignment(SwingConstants.CENTER);
+
+        label.setBorder(BorderFactory.createCompoundBorder(
+        BorderFactory.createLineBorder(Color.BLACK),
+        BorderFactory.createEmptyBorder(2, 4, 2, 4)
+        ));
+
         return label;
     }
 
@@ -198,6 +233,12 @@ public class CadastroPessoa extends JFrame {
         JTextField campo = new JTextField(colunas);
         campo.setFont(fonteCampos);
         campo.setBackground(corCampo);
+
+        campo.setBorder(BorderFactory.createCompoundBorder(
+        BorderFactory.createLineBorder(Color.GRAY),
+        BorderFactory.createEmptyBorder(2, 4, 2, 4)
+        ));
+
         return campo;
     }
 
