@@ -6,7 +6,7 @@ public class CadastroPessoa extends JFrame {
     // Fontes e cores
     private final Font fonteLabels = new Font("Arial", Font.BOLD, 12);
     private final Font fonteCampos = new Font("Arial", Font.PLAIN, 12);
-    private final Color corLabel = new Color(255, 102, 0);  // Laranja
+    //private final Color corLabel = new Color(255, 102, 0);  // Laranja
     private final Color corCampo = Color.WHITE;
 
     // Componentes
@@ -44,22 +44,23 @@ public class CadastroPessoa extends JFrame {
         gbc.gridx = 3;
         txtCpfCnpj = criarCampo(15);
         painel.add(txtCpfCnpj, gbc);
+        gbc.gridx = 4; 
+        painel.add(criarLabel("Fornecedor"), gbc);
+        gbc.gridx = 5;
+        chkFornecedor = new JCheckBox();
+        painel.add(chkFornecedor, gbc);
+
+
 
         // Linha 2
         gbc.gridx = 0; gbc.gridy++;
         painel.add(criarLabel("Nome"), gbc);
-        gbc.gridx = 1; gbc.gridwidth = 3;
+        gbc.gridx = 1; gbc.gridwidth = 1;
         txtNome = criarCampo(30);
         painel.add(txtNome, gbc);
         gbc.gridwidth = 1;
 
         // Linha 3
-        gbc.gridx = 0; gbc.gridy++;
-        painel.add(criarLabel("Fornecedor"), gbc);
-        gbc.gridx = 1;
-        chkFornecedor = new JCheckBox();
-        painel.add(chkFornecedor, gbc);
-
         gbc.gridx = 2;
         painel.add(criarLabel("RG / Inscrição Estadual"), gbc);
         gbc.gridx = 3;
@@ -73,11 +74,6 @@ public class CadastroPessoa extends JFrame {
         txtOrgaoExp = criarCampo(15);
         painel.add(txtOrgaoExp, gbc);
 
-        gbc.gridx = 2;
-        painel.add(criarLabel("CEP"), gbc);
-        gbc.gridx = 3;
-        txtCep = criarCampo(10);
-        painel.add(txtCep, gbc);
 
         // Linha 5
         gbc.gridx = 0; gbc.gridy++;
@@ -87,24 +83,32 @@ public class CadastroPessoa extends JFrame {
         painel.add(txtEmail, gbc);
 
         gbc.gridx = 2;
+        painel.add(criarLabel("CEP"), gbc);
+        gbc.gridx = 3;
+        txtCep = criarCampo(10);
+        painel.add(txtCep, gbc);
+
+        gbc.gridx = 2;
         painel.add(criarLabel("País"), gbc);
         gbc.gridx = 3;
         txtPais = criarCampo(10);
         txtPais.setText("BRASIL");
+        txtPais.setEditable(false);
         painel.add(txtPais, gbc);
 
-        // Linha 6
         gbc.gridx = 0; gbc.gridy++;
         painel.add(criarLabel("UF"), gbc);
         gbc.gridx = 1;
         txtUf = criarCampo(5);
         painel.add(txtUf, gbc);
 
-        gbc.gridx = 2;
+        // Linha 6
+        gbc.gridx = 0; gbc.gridy++;
         painel.add(criarLabel("Município"), gbc);
-        gbc.gridx = 3;
+        gbc.gridx = 1; gbc.gridwidth = 3; //tirar gridwidth caso dê erro
         txtMunicipio = criarCampo(15);
         painel.add(txtMunicipio, gbc);
+
 
         // Linha 7
         gbc.gridx = 0; gbc.gridy++;
@@ -186,7 +190,7 @@ public class CadastroPessoa extends JFrame {
     private JLabel criarLabel(String texto) {
         JLabel label = new JLabel(texto);
         label.setFont(fonteLabels);
-        label.setForeground(corLabel);
+       // label.setForeground(corLabel);
         return label;
     }
 
