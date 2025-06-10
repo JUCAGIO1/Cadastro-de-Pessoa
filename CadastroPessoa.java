@@ -31,14 +31,18 @@ public class CadastroPessoa extends JFrame {
         gbc.insets = new Insets(5, 5, 5, 5);
         gbc.fill = GridBagConstraints.HORIZONTAL;
 
-        // Texto 
+        // Linha 0
+        gbc.gridy = 0;
+        gbc.gridx = 0;
         JLabel labelInfo = new JLabel("Cadastro de Pessoa");
-        labelInfo.setFont(new Font("Arial", Font.ITALIC, 11));
+        labelInfo.setFont(new Font("Arial", Font.ITALIC, 40));
+        gbc.gridwidth = 7;
+        labelInfo.setForeground(new Color(242, 114, 34));
         painel.add(labelInfo, gbc);
 
         // Linha 1 
-        gbc.gridy = 0;
-        gbc.gridx = 0;
+        gbc.gridy++;
+        gbc.gridx = 0; gbc.gridwidth = 1;
         painel.add(criarLabel("Tipo"), gbc);
         gbc.gridx = 1;
         comboTipo = new JComboBox<>(new String[]{"Física", "Jurídica"});
