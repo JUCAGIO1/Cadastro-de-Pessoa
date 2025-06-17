@@ -6,7 +6,6 @@ public class CadastroPessoa extends JFrame {
     // Fontes e cores
     private final Font fonteLabels = new Font("Arial", Font.BOLD, 12);
     private final Font fonteCampos = new Font("Arial", Font.PLAIN, 12);
-    private final Color corLabel = new Color(255, 102, 0);  // Laranja
     private final Color corCampo = Color.WHITE;
 
     // Componentes
@@ -112,7 +111,8 @@ public class CadastroPessoa extends JFrame {
         gbc.gridx = 1; gbc.gridwidth = 2;
         txtPais = criarCampo(10);
         txtPais.setText("BRASIL");
-        txtPais.setEditable(false);
+        txtPais.setBackground(new Color(240, 240, 240));
+
         painel.add(txtPais, gbc);
 
         gbc.gridx = 3;
@@ -122,6 +122,7 @@ public class CadastroPessoa extends JFrame {
         painel.add(txtUf, gbc);
         gbc.gridx = 6; gbc.gridwidth = 2;
         txtUf = criarCampo(5);
+        txtUf.setBackground(new Color(240, 240, 240));
         painel.add(txtUf, gbc);
 
         // Linha 6
@@ -131,6 +132,7 @@ public class CadastroPessoa extends JFrame {
         painel.add(criarLabel("Município"), gbc);
         gbc.gridx = 1; gbc.gridwidth = 6;
         txtMunicipio = criarCampo(15);
+        txtMunicipio.setBackground(new Color(240, 240, 240));
         painel.add(txtMunicipio, gbc);
 
         // Linha 7
@@ -220,7 +222,7 @@ public class CadastroPessoa extends JFrame {
     private JLabel criarLabel(String texto) {
         JLabel label = new JLabel(texto);
         label.setFont(fonteLabels);
-        label.setForeground(corLabel);
+
 
         label.setHorizontalAlignment(SwingConstants.CENTER);
         label.setVerticalAlignment(SwingConstants.CENTER);
